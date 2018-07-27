@@ -4,11 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-unsigned long itr_1 = 0;
-unsigned long itr_2 = 0;
-
 unsigned long fibonacci(unsigned long n){
-	// printf("itr_1 : %d\r\n", itr_1++);
 	if(0 == n) return 0;
 	if(1 == n) return 1;
 	return fibonacci(n - 1) + fibonacci(n - 2);
@@ -20,7 +16,6 @@ unsigned int better_fibonacci(unsigned long n){
 	if(ptr_f){
 		ptr_f[0] = 0, ptr_f[1] = 1;
 		for(unsigned long i = 2; i < n + 1; i++){
-			// printf("itr_2 : %d\r\n", itr_2++);
 			ptr_f[i] = ptr_f[i - 1] + ptr_f[i - 2];
 		}
 		return ptr_f[n];	
@@ -106,30 +101,30 @@ unsigned int optimized_matrix_fibonacci(unsigned int n){
 }
 
 int main(int argc, char const *argv[]){
-	unsigned long n = 100009;
+	unsigned long n = 100000;
 	clock_t start = 0;
 
 	start = clock();
 	printf("%luth better_fibonacci : %lu\n", n, better_fibonacci(n));
-	printf("CPU Clock Taken : %d\n", clock() - start);
+	printf("CPU Clock Time Taken : %d\n", clock() - start);
 
 	start = clock();
 	printf("%luth better_space_fibonacci : %lu\n", n, better_space_fibonacci(n));
-	printf("CPU Clock Taken : %d\n", clock() - start);
+	printf("CPU Clock Time Taken : %d\n", clock() - start);
 
 
 	start = clock();
 	printf("%luth matrix_fibonacci : %lu\n", n, matrix_fibonacci(n));
-	printf("CPU Clock Taken : %d\n", clock() - start);
+	printf("CPU Clock Time Taken : %d\n", clock() - start);
 
 	start = clock();
 	printf("%luth optimized_matrix_fibonacci : %lu\n", n, optimized_matrix_fibonacci(n));
-	printf("CPU Clock Taken : %d\n", clock() - start);
+	printf("CPU Clock Time Taken : %d\n", clock() - start);
 
 	printf("Power : %d\n", power(3, 3));
 
 	// start = clock();
 	// printf("%luth fibonacci : %lu\n", n, fibonacci(n));
-	// printf("CPU Clock Taken : %d\n", clock() - start);
+	// printf("CPU Clock Time Taken : %d\n", clock() - start);
 	return 0;
 }
